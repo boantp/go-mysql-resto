@@ -1,0 +1,370 @@
+FORMAT: 1A
+HOST: http://restaurant.apiblueprint.org/
+
+# restaurant
+
+Restaurant is a simple API allowing consumers to view Restaurant and make reservation.
+
+## Nearby Restaurant Collection [/restaurant]
+
+List all around restaurant  
+
+### RESTAURANT - Fetch All Around Restaurant [POST]
+
++ Request (application/json)
+
+            {
+                "customer_id": 1,
+                "latitude": "-6.218923",
+                "longitude": "106.802508"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "response:code": "1",
+                "response_description": "success",
+                "data": [
+                    {
+                        "restaurant_id": 3,
+                        "restaurant_name": "Saung Kuring Sundanese Restaurant",
+                        "restaurant_url": "saung_kuring",
+                        "restaurant_description": "Sundanese traditional food from indonesia",
+                        "restaurant_address": "Jalan KH Sholeh Iskandar No.9, Kedung Badak, Tanah Sereal, Kedung Badak, Tanah Sereal, Kota Bogor, Jawa Barat 16164",
+                        "restaurant_phone": "(0251)8331885",
+                        "restaurant_location": "Bogor",
+                        "restaurant_cuisines": {
+                            "cuisines_id": 3,
+                            "restaurant_cuisines_name": "indonesian"
+                        },
+                        "restaurant_operationals": [
+                            {
+                                "operational_id": 15,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Saturday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 16,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Sunday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 17,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Monday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 18,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Tuesday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 19,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Wednesday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 20,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Thursday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 21,
+                                "operational_restaurant_id": 3,
+                                "operational_day": "Friday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            }
+                        ],
+                        "restaurant_latitude": -6.561851,
+                        "restaurant_longitude": 106.799155,
+                        "restaurant_image": "indonesia_bogor.jpg",
+                        "radius_km": 11862.9
+                    },
+                    {
+                        "restaurant_id": 1,
+                        "restaurant_name": "Emilie French Restaurant",
+                        "restaurant_url": "emillie",
+                        "restaurant_description": "EMILIE OFFERS AN ARTFUL BLEND OF MODERN YET CLASSICALLY INSPIRED FRENCH CUISINE. SIMPLE, YET HIGH ATTENTION TO DETAIL, EACH DISH BENEFITS FROM THE BEST OF \r\nSEASONAL PRODUCE. ",
+                        "restaurant_address": "Jalan Senopati 39, Jakarta Capital Region, RT.6/RW.3, Senayan, Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190",
+                        "restaurant_phone": "(021)5213626",
+                        "restaurant_location": "Jakarta",
+                        "restaurant_cuisines": {
+                            "cuisines_id": 10,
+                            "restaurant_cuisines_name": "french"
+                        },
+                        "restaurant_operationals": [
+                            {
+                                "operational_id": 1,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Saturday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 2,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Sunday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 3,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Monday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 4,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Tuesday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 5,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Wednesday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 6,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Thursday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 7,
+                                "operational_restaurant_id": 1,
+                                "operational_day": "Friday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            }
+                        ],
+                        "restaurant_latitude": -6.231031,
+                        "restaurant_longitude": 106.809259,
+                        "restaurant_image": "french_jakarta.jpg",
+                        "radius_km": 11865.3
+                    },
+                    {
+                        "restaurant_id": 2,
+                        "restaurant_name": "Mikawa (Japanese Restaurant)",
+                        "restaurant_url": "mikawa",
+                        "restaurant_description": "Mikawa Japanese Sake Bar & Restaurant offers what Japan cuisine has to brag to their food about with its mouth-watering dishes and delectable foods that could satisfy your cravings with variety of selection of Sake, Sashimi, Sushi, Tempura, Yakitori and many more. This is a place to rest your mind and eat to your satisfaction. .",
+                        "restaurant_address": "Jl. Sukaraja II No.32, Sukaraja, Cicendo, Kota Bandung, Jawa Barat 40175",
+                        "restaurant_phone": "(022)6073983",
+                        "restaurant_location": "Bandung",
+                        "restaurant_cuisines": {
+                            "cuisines_id": 5,
+                            "restaurant_cuisines_name": "japanese"
+                        },
+                        "restaurant_operationals": [
+                            {
+                                "operational_id": 8,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Saturday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 9,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Sunday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 10,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Monday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 11,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Tuesday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 12,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Wednesday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 13,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Thursday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            },
+                            {
+                                "operational_id": 14,
+                                "operational_restaurant_id": 2,
+                                "operational_day": "Friday",
+                                "operational_open_hour": "10:30AM",
+                                "operational_closed_hour": "10:30PM"
+                            }
+                        ],
+                        "restaurant_latitude": -6.892334,
+                        "restaurant_longitude": 107.574673,
+                        "restaurant_image": "japan_bandung.jpg",
+                        "radius_km": 11947.2
+                    }
+                ],
+                "location": ""
+            }
+            
+## Restaurant Detail Collection [/restaurant/{restaurant_id}]
+
+Detail Restaurant  
+
+### RESTAURANT - Fetch Detail Restaurant [GET]
+
++ Response 200 (application/json)
+
+            {
+                "response:code": "1",
+                "response_description": "success",
+                "data": {
+                    "restaurant_id": 1,
+                    "restaurant_name": "Emilie French Restaurant",
+                    "restaurant_url": "",
+                    "restaurant_description": "EMILIE OFFERS AN ARTFUL BLEND OF MODERN YET CLASSICALLY INSPIRED FRENCH CUISINE. SIMPLE, YET HIGH ATTENTION TO DETAIL, EACH DISH BENEFITS FROM THE BEST OF \r\nSEASONAL PRODUCE. ",
+                    "restaurant_address": "Jalan Senopati 39, Jakarta Capital Region, RT.6/RW.3, Senayan, Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190",
+                    "restaurant_phone": "(021)5213626",
+                    "restaurant_location": "Jakarta",
+                    "restaurant_cuisines": {
+                        "cuisines_id": 10,
+                        "restaurant_cuisines_name": "french"
+                    },
+                    "restaurant_operationals": [
+                        {
+                            "operational_id": 1,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Saturday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        },
+                        {
+                            "operational_id": 2,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Sunday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        },
+                        {
+                            "operational_id": 3,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Monday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        },
+                        {
+                            "operational_id": 4,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Tuesday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        },
+                        {
+                            "operational_id": 5,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Wednesday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        },
+                        {
+                            "operational_id": 6,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Thursday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        },
+                        {
+                            "operational_id": 7,
+                            "operational_restaurant_id": 1,
+                            "operational_day": "Friday",
+                            "operational_open_hour": "10:30AM",
+                            "operational_closed_hour": "10:30PM"
+                        }
+                    ],
+                    "restaurant_latitude": -6.231031,
+                    "restaurant_longitude": 106.809259,
+                    "restaurant_image": "french_jakarta.jpg",
+                    "radius_km": 0
+                },
+                "location": ""
+            }
+            
+## Restaurant Reservation Collection [/restaurant/reservation]
+
+Make a reservation 
+
+### RESTAURANT - Reservation Restaurant [POST]
+
++ Request (application/json)
+
+            {
+                "reservation_customer_id": 1,
+                "reservation_customer_name": "Boan",
+                "reservation_customer_phone": "08521054900",
+                "reservation_restaurant_id": 1,
+                "reservation_restaurant_name": "Resto",
+                "reservation_total_guest": "5",
+                "reservation_datetime": "2018-09-22 10:15:28"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "response:code": "1",
+                "response_description": "success",
+                "data": {
+                    "reservation_id": 0,
+                    "reservation_restaurant": {
+                        "restaurant_id": 1,
+                        "restaurant_name": "Resto",
+                        "restaurant_url": "",
+                        "restaurant_description": "",
+                        "restaurant_address": "",
+                        "restaurant_phone": "",
+                        "restaurant_location": "",
+                        "restaurant_cuisines": {
+                            "cuisines_id": 0,
+                            "restaurant_cuisines_name": ""
+                        },
+                        "restaurant_operationals": null,
+                        "restaurant_latitude": 0,
+                        "restaurant_longitude": 0,
+                        "restaurant_image": "",
+                        "radius_km": 0
+                    },
+                    "reservation_code": "36523429",
+                    "reservation_total_guest": "5",
+                    "reservation_datetime": "2018-09-22 10:15:28",
+                    "reservation_customer": {
+                        "customer_id": 1,
+                        "customer_name": "Boan",
+                        "customer_phone": "08521054900"
+                    }
+                }
+            }
