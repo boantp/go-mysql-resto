@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Detail</title>
+    <link rel="stylesheet" href="public/css/main.css">
+</head>
+<body>
+
+<h1>Reservation Detail</h1>
+<button onclick="goBack()" style="width:10%;background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;">Go Back</button>
+<div class="resto-list">
+    <ul id="ul-resto">
+        <li id="li-resto" style="width:100%">
+                <div class="resto-detail"> 
+                    <div class="detail-left">
+                        <p>Reservation Code: {{.Data.ReservationCode}}</p>
+                        <p>Customer Name: {{.Data.ReservationCustomer.CustomerName}}</p>
+                        <p>Customer Phone: {{.Data.ReservationCustomer.CustomerPhone}}</p>
+                        <p>Restaurant Name: {{.Data.ReservationRestaurant.RestaurantName}}</p>
+                        <p>Reservation Guest: {{.Data.ReservationTotalGuest}}</p>
+                        <p>Reservation Datetime: {{.Data.ReservationDatetime}}</p>
+                    </div>
+                </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

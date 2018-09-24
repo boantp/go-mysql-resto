@@ -1,0 +1,47 @@
+syntax = "proto3";
+package restaurant;
+
+
+// The Restaurant service definition.
+service Restaurant {   
+  // Get all Restaurant with filter - A server-to-client streaming RPC.
+  rpc GetRestaurants(RestaurantFilter) returns (stream RestaurantRequest) {}
+  // Create a new Restaurant - A simple RPC 
+  rpc CreateRestaurant (RestaurantRequest) returns (RestaurantResponse) {}
+}
+
+// Request message for creating a new Restaurant
+message RestaurantRequest {
+  int32 restaurant_id = 1;  // Unique ID number for a Restaurant.
+  string restaurant_name = 2;
+  string restaurant_url = 3;
+  string restaurant_description = 4;
+  string restaurant_address= 5;
+  string restaurant_phone= 6;
+  string restaurant_location= 7;
+  string restaurant_image= 8;
+  
+  message Operational {
+    int32 operational_id = 1;
+    string operational_day = 2;
+    string operational_open_hour = 3;
+    string operational_closed_hour = 4;
+  }
+
+  repeated Operational operationals = 9;
+
+  message Cuisine {
+    int32 cuisine_id = 1;
+    string cuisine_name = 2;
+  }
+
+  repeated Cuisine cuisines = 10;
+}
+
+message RestaurantResponse {
+  int32 restaurant_id = 1;
+  bool success = 2;
+}
+message RestaurantFilter {    
+  string keyword = 1;
+}

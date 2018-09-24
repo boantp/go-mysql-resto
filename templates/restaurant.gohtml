@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Detail</title>
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/jquery-ui.css">
+    <script src="public/js/jquery-1.12.4.js"></script>
+    <script src="public/js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="public/css/jquery.timepicker.min.css">
+    <script src="public/js/jquery.timepicker.min.js"></script>
+    <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd'});
+        $("#timepicker").timepicker({
+            timeFormat: 'h:mm p',
+            interval: 60,
+            minTime: '10',
+            maxTime: '9:00pm',
+            defaultTime: '11',
+            startTime: '10:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+                });
+            });
+    </script>
+</head>
+<body>
+
+<h1>Restaurant Detail</h1>
+<button onclick="goBack()" style="width:10%;background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;">Go Back</button>
+<div class="resto-list">
+    <ul id="ul-resto">
+        <li id="li-resto">
+            <a href="restaurant?key={{.RestaurantUrl}}">
+                <div class="resto-image" style="position:relative">
+                    <img src="/public/pics/{{.RestaurantImage}}">
+                </div>
+                <div class="resto-detail"> 
+                    <div class="detail-left" style="width:100%;">
+                        <h1>{{.RestaurantName}}</h1><br />
+                        Phone: <h1>{{.RestaurantPhone}}</h1><br />
+                        Address: <p>{{.RestaurantAddress}}</p><br />
+                        Working hours:
+                        {{range .Operationals}}
+                            <p>{{.OperationalDay}} [{{.OperationalOpenHour}} - {{.OperationalClosedHour}}]</p>
+                        {{end}}
+                    </div>
+                </div>
+            </a>
+        </li>
+         <li id="li-resto">
+            <form method="post" action="reservation">
+                <input type="hidden" name="customer_id" value="1">
+                <input type="hidden" name="restaurant_id" value="{{.RestaurantId}}">
+                <input type="hidden" name="restaurant_name" value="{{.RestaurantName}}">
+                <input type="text" id="name" name="customer_name" value="" placeholder="Reservation Name" required>
+                <input type="text" id="phone" name="customer_phone" placeholder="Reservation Phone Number" value="" required>
+                Party
+                <select name="total_guest" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                Date:
+                <input type="text" id="datepicker" name="date" placeholder="Click for date" required>
+                Time:
+                <input type="text" id="timepicker" name="time" placeholder="Click for time" required>
+                <input id="btn" type="submit" value="Reserve">
+            </form>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

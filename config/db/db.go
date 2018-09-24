@@ -1,0 +1,24 @@
+package db
+
+import (
+	"database/sql"
+	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+var DB *sql.DB
+
+func init() {
+	var err error
+	DB, err = sql.Open("mysql", "root:pasaribu@tcp(localhost:3306)/restaurant")
+	checkErr(err)
+
+	fmt.Println("You connected to your database")
+}
+
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}

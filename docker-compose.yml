@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: deployments/docker/web/Dockerfile
+    container_name: app.dev
+    volumes:
+      - .:/go/src/go-mysql-resto
+    working_dir: /go/src/go-mysql-resto
+    command: go run main.go
+    ports:
+      - "3000:3000"
+    links:
+      - db
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  db:
+    build:
+      context: .
+      dockerfile: deployments/docker/db/Dockerfile
+    image: my-mysql:1.0
+    container_name: database.dev
+    hostname: database.dev
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pasaribu
+      MYSQL_DATABASE: restaurant
+    # sync folders. MySQL data is stored outside container so that rebuilding doesn't clear db.
+    # folder is at workspace root.
+    volumes:
+      - ./mysql_init:/docker-entrypoint-initdb.d
