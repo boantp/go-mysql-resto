@@ -11,7 +11,7 @@ var DB *sql.DB
 
 func init() {
 	var err error
-	DB, err = sql.Open("mysql", "root:pasaribu@tcp(localhost:3306)/restaurant")
+	DB, err = sql.Open("mysql", "root:pasaribu@tcp(database.dev:3306)/restaurant")
 	checkErr(err)
 
 	fmt.Println("You connected to your database")

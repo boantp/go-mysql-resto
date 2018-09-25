@@ -11,7 +11,33 @@ services:
     working_dir: /go/src/go-mysql-resto
     command: go run main.go
     ports:
+      - "4000:4000"
+    links:
+      - db
+  api:
+    build:
+      context: .
+      dockerfile: deployments/docker/web/Dockerfile
+    container_name: api.dev
+    volumes:
+      - .:/go/src/go-mysql-resto
+    working_dir: /go/src/go-mysql-resto/server-http
+    command: "go run server.go"
+    ports:
       - "3000:3000"
+    links:
+      - db
+  rpc:
+    build:
+      context: .
+      dockerfile: deployments/docker/grpc/Dockerfile
+    container_name: rpc.dev
+    volumes:
+      - .:/go/src/go-mysql-resto
+    working_dir: /go/src/go-mysql-resto/server-grpc
+    command: "go run main.go"
+    ports:
+      - "50051:50051"
     links:
       - db
   adminer:
@@ -34,4 +60,4 @@ services:
     # sync folders. MySQL data is stored outside container so that rebuilding doesn't clear db.
     # folder is at workspace root.
     volumes:
-      - ./mysql_init:/docker-entrypoint-initdb.d
+      - ./deployments/mysql_init:/docker-entrypoint-initdb.d
