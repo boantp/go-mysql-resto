@@ -33,7 +33,7 @@ func NewWebController() *WebController {
 type BaseUrl string
 
 const (
-	development BaseUrl = "http://api.dev/"
+	development BaseUrl = "http://api.dev:3000/"
 	staging     BaseUrl = "http://localhost:3000/"
 	production  BaseUrl = "http://localhost:3000/"
 )
@@ -77,7 +77,7 @@ func (wc WebController) NearbyRestaurant(w http.ResponseWriter, r *http.Request)
 		buffer.WriteString(string(development))
 		buffer.WriteString("restaurant")
 		url := buffer.String()
-
+		log.Println("url")
 		//POST
 		req, err := http.NewRequest("POST", url, bytes.NewBuffer(uj))
 		req.Header.Set("X-Custom-Header", "myvalue")
