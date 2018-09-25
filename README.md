@@ -16,30 +16,36 @@ See [API Documentation](https://github.com/boantp/go-mysql-resto/blob/master/api
 
 ## Directory Structure
 ```
-go-mysql-rest-api
-    |--config                   - to initialize template and database
-        |--db.go                - for initialize mysql database connection
-        |--tpl.go               - for template view configuration
-    |--controllers              - to store package controllers
-        |--cart.go              - to handle Cart Collection [/cart]
-        |--order.go             - to handle Order Collection [/order/{store_id}]
-        |--tax_code.go          - to handle Tax Code Collection [/tax_code]
-        |--web.go               - to handle Web/Frontend for GUI add cart["/"], GUI view bill ["order_view/:store_id]
-    |--docker                   - Dockerfile for Golang at folder web, Dockerfile for MySQL at folder db
-        |--db
-            |--Dockerfile
-        |--web
-            |--Dockerfile
-    |--models                    - to store package models for object and mysql query
-        |--order_details.go      - for table order_details
-        |--orders.go             - for total amount, total tax amount, grand total object, and for table orders
-        |--tax_code.go           - for table tax_code
-    |--mysql_init                - init Table shopee
-        |--shopee.sql
-    |--templates                 - to store html file for golang *gohtml
-    |--apiary.apib               - json file docs from APIARY for API DOCS
-    |--database_design.png       - DB structure and explanation
-    |--docker-compose.yml        - for docker-compose service and config
+go-mysql-resto
+    |--api                            - REST API Package
+        |--handlers.go                - Handler REST API in API Package
+        |--model.go                   - Struct and mysql query in API Package
+    |--client-grpc                    - Restaurant gRPC
+        |--restauranggrpc/main.go     - RPC Method client to server for Restaurant Service
+    |--config                         - config mysql, template
+       |--db                          - mysql connection
+          |--db.go
+       |--tpl                         - template gohtml
+          |--tpl.go
+    |--deployments                    - deploy for docker compose
+        |--docker                     - Dockerfile for Web Client at folder web, Dockerfile for MySQL at folder db, and gRPC
+           |--db
+              |--Dockerfile
+           |--grpc
+              |--Dockerfile
+           |--web
+              |--Dockerfile
+    |--mysql_init                     - init Table restaurant
+        |--restaurant.sql     
+    |--public                         - js, css, pics
+    |--restaurant                     - proto restaurant for gRPC
+    |--server-grpc                    - serve gRPC
+    |--server-http                    - serve REST API
+    |--templates                      - to store html file for golang *gohtml
+    |--web                            - Handler Web Client
+    |--apiary.apib                    - API design and documentation
+    |--database_design.png            - DB structure and relational
+    |--docker-compose.yml             - for docker-compose service and config
     |--main.go                   
 
   
