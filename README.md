@@ -20,7 +20,7 @@ go-mysql-resto
     |--api                            - REST API Package
         |--handlers.go                - Handler REST API in API Package
         |--model.go                   - Struct and mysql query in API Package
-    |--client-grpc                    - Restaurant gRPC
+    |--client-grpc                    - Handler Restaurant gRPC
         |--restauranggrpc/main.go     - RPC Method client to server for Restaurant Service
     |--config                         - config mysql, template
        |--db                          - mysql connection
@@ -46,7 +46,7 @@ go-mysql-resto
     |--apiary.apib                    - API design and documentation
     |--database_design.png            - DB structure and relational
     |--docker-compose.yml             - for docker-compose service and config
-    |--main.go                   
+    |--main.go                        - serve Web Client
 
   
 ```
@@ -54,7 +54,9 @@ go-mysql-resto
 ## Setup
 
 **Steps**
-1. git clone [git@github.com:boantp/go-mysql-rest-api.git](git@github.com:boantp/go-mysql-rest-api.git)
+1. git clone [git@github.com:boantp/go-mysql-resto.git](git@github.com:boantp/go-mysql-resto.git)
 2. install docker and docker-compose 
 3. open terminal and run docker-compose build (service are build), docker-compose up(builds, recreates, attaches to container for service), docker-compose down (stop containers and remove containers etc) See [Docker Documentation](https://docs.docker.com/compose/reference/build/) on how to use it.
-4. now your server ready for http:localhost:3000/
+4. docker-compose exec db /bin/bash , mysql -u root -p, ALTER USER 'root'@'localhost' IDENTIFIED BY 'pasaribu';
+5. now your server ready for http:localhost:4000/ (Web Client)
+6. now your server ready for http:localhost:3000/ (REST API)
