@@ -2,10 +2,14 @@ version: "3"
 
 services:
   web:
+    depends_on: 
+      - api
+      - db
     build:
       context: .
       dockerfile: deployments/docker/web/Dockerfile
     container_name: app.dev
+    hostname: app.dev
     volumes:
       - .:/go/src/go-mysql-resto
     working_dir: /go/src/go-mysql-resto
@@ -13,12 +17,16 @@ services:
     ports:
       - "4000:4000"
     links:
-      - db
+      - api
   api:
+    depends_on: 
+      - db
+      - rpc
     build:
       context: .
       dockerfile: deployments/docker/web/Dockerfile
     container_name: api.dev
+    hostname: api.dev
     volumes:
       - .:/go/src/go-mysql-resto
     working_dir: /go/src/go-mysql-resto/server-http
@@ -32,6 +40,7 @@ services:
       context: .
       dockerfile: deployments/docker/grpc/Dockerfile
     container_name: rpc.dev
+    hostname: rpc.dev
     volumes:
       - .:/go/src/go-mysql-resto
     working_dir: /go/src/go-mysql-resto/server-grpc

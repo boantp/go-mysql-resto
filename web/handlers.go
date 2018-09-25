@@ -33,7 +33,7 @@ func NewWebController() *WebController {
 type BaseUrl string
 
 const (
-	development BaseUrl = "http://localhost:3000/"
+	development BaseUrl = "http://api.dev/"
 	staging     BaseUrl = "http://localhost:3000/"
 	production  BaseUrl = "http://localhost:3000/"
 )
