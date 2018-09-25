@@ -11,7 +11,7 @@ import (
 
 // address for grpc server call in model
 const (
-	address = "localhost:50051"
+	address = "rest.dev:50051"
 )
 
 type Restaurant struct {
