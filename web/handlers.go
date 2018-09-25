@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	address = "localhost:50051"
+	address = "rpc.dev:50051"
 )
 
 type (
